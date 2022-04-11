@@ -37,7 +37,7 @@ public class Programa1 {
                 try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
 
                     System.out.println("MENU DE OPERACIONES");
-                    System.out.println("1 = SUMA, 2 = RESTA, 3 = MULTIPLICACION, 4 = DIVISION,  5 = PRIMOS, 6 = FIBONACCI, 7 = EXIT");
+                    System.out.println("1 = SUMA, 2 = RESTA, 3 = MULTIPLICACION, 4 = DIVISION,  5 = PRIMOS, 6 = EXIT");
                     System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
 
                     menu = sc.nextInt();
@@ -95,7 +95,6 @@ public class Programa1 {
                 }
                 System.out.println("El resultado de la division es:" + (division / division2));
             }
-
             if (menu == 5) {
                 System.out.println("Usted escogio SECUENCIA DE NUMEROS PRIMOS");
                 System.out.println("NUMEROS PRIMOS");
@@ -105,46 +104,25 @@ public class Programa1 {
                 int j = 1;
                 System.out.println("Escribe el numero");
                 num = sc.nextInt();
-                while (num >= i) {
-                    while (i >= j) {
+                if (num >= i) {
+                    while (i <= j) {
                         if (i % j == 0) {
                             cont++;
+                            j ++;
+                        } else {
+                            j ++;
+                            if (cont == 2) {
+                                System.out.println(num);
+                                i ++;
+                            }
                         }
-                        j++;
-                    }
-                    if (cont == 2) {
-                        System.out.println(i);
-                    }
-                    i++;
-                    cont = 0;
-                    j = 1;
-                }
-            }
-
-            if (menu == 6) {
-
-                int a = 0;
-                int b = 1;
-                int c;
-                int n;
-
-                System.out.println("Escribe un numero");
-                n = sc.nextInt();
-                System.out.println(a);
-                System.out.println(b);
-                while (true) {
-                    c = a + b;
-                    if (c < n) {
-                        System.out.println(c);
-                        a = b;
-                        b = c;
                     }
                 }
             }
 
-            again = true;                                      // cada vez que termine esta flag volvera a dar las opciones del menu
+            again = true;                                        // cada vez que termine esta flag volvera a dar las opciones del menu
 
-            if (menu == 7) {                                       //si no escogio ninguna de las opciones que estaban dentro de la flag y escogio 6 va a cerrar
+            if (menu == 6) {                                       //si no escogio ninguna de las opciones que estaban dentro de la flag y escogio 6 va a cerrar
                 System.out.println(" ____________________________");
                 System.out.println("|                            |");
                 System.out.println("|USTED HA CERRADO EL PROGRAMA|");
