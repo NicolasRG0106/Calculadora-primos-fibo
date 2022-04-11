@@ -108,21 +108,45 @@ public class Programa1 {
                     while (i <= j) {
                         if (i % j == 0) {
                             cont++;
-                            j ++;
+                            j++;
                         } else {
-                            j ++;
+                            j++;
                             if (cont == 2) {
                                 System.out.println(num);
-                                i ++;
+                                i++;
                             }
                         }
                     }
                 }
             }
 
+            if (menu == 6) {
+                System.out.println("Usted escogio SECUENCIA FIBONACCI");
+                System.out.println("FIBONACCI");
+                Scanner scan = new Scanner(System.in);
+
+                int a = 0;
+                int b = 1;
+                int c;
+                int n;
+
+                System.out.println("Escribe un numero");
+                n = scan.nextInt();
+                System.out.println(a);
+                System.out.println(b);
+                while (true) {
+                    c = a + b;
+                    if (c < n) {
+                        System.out.println(c);
+                        a = b;
+                        b = c;
+                    }
+                }
+            }
+
             again = true;                                        // cada vez que termine esta flag volvera a dar las opciones del menu
 
-            if (menu == 6) {                                       //si no escogio ninguna de las opciones que estaban dentro de la flag y escogio 6 va a cerrar
+            if (menu == 7) {                                       //si no escogio ninguna de las opciones que estaban dentro de la flag y escogio 6 va a cerrar
                 System.out.println(" ____________________________");
                 System.out.println("|                            |");
                 System.out.println("|USTED HA CERRADO EL PROGRAMA|");
