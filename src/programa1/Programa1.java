@@ -37,7 +37,7 @@ public class Programa1 {
                 try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
 
                     System.out.println("MENU DE OPERACIONES");
-                    System.out.println("1 = SUMA, 2 = RESTA, 3 = MULTIPLICACION, 4 = DIVISION,  5 = PRIMOS, 6 = EXIT");
+                    System.out.println("1 = SUMA, 2 = RESTA, 3 = MULTIPLICACION, 4 = DIVISION,  5 = PRIMOS, 6 = FIBONACCI, 7 = EXIT");
                     System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
 
                     menu = sc.nextInt();
@@ -96,6 +96,7 @@ public class Programa1 {
                 System.out.println("El resultado de la division es:" + (division / division2));
             }
             if (menu == 5) {
+
                 System.out.println("Usted escogio SECUENCIA DE NUMEROS PRIMOS");
                 System.out.println("NUMEROS PRIMOS");
                 int num;
@@ -104,19 +105,19 @@ public class Programa1 {
                 int j = 1;
                 System.out.println("Escribe el numero");
                 num = sc.nextInt();
-                if (num >= i) {
-                    while (i <= j) {
+                while (num >= i) {
+                    while (i >= j) {
                         if (i % j == 0) {
                             cont++;
-                            j++;
-                        } else {
-                            j++;
-                            if (cont == 2) {
-                                System.out.println(num);
-                                i++;
-                            }
                         }
+                        j++;
                     }
+                    if (cont == 2) {
+                        System.out.println(i);
+                    }
+                    i++;
+                    cont = 0;
+                    j = 1;
                 }
             }
 
