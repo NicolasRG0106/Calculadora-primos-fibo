@@ -24,6 +24,10 @@ public class Programa1 {
         int menu = 0;
         boolean flag;
         boolean again;
+        boolean first;
+        int menu2 = 0;
+        int menu3 = 0;
+        int menu4 = 0;
 
         Scanner sc = new Scanner(System.in); //ingreso de texto por usuario
 
@@ -32,24 +36,80 @@ public class Programa1 {
 
             do {                          //bucle para que al escoger un no int volver al menu y no generar error
 
-                flag = false;            //flag
+                first = false;            //flag
 
                 try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
 
-                    System.out.println("MENU DE OPERACIONES");
-                    System.out.println("1 = SUMA, 2 = RESTA, 3 = MULTIPLICACION, 4 = DIVISION,  5 = PRIMOS, 6 = FIBONACCI, 7 = EXIT");
+                    System.out.println("MENU");
+                    System.out.println(" 1. OPERACIONES BASICAS \n 2. PRIMOS \n 3. FIBONACCI \n 4. SALIR");
                     System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
 
                     menu = sc.nextInt();
                 } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
                     System.out.println("SU CARACTER FUE INCORRECTO");
                     sc.nextLine();
+                    first = true;                            //si es asi volver a el menu
+                }
+
+            } while (first);
+                                     //bucle para que al escoger un no int volver al menu y no generar error
+                if (menu == 1){
+                flag = false;            //flag
+
+                try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
+
+                    
+                    System.out.println("USTED ESCOGIO OPERACIONES BASICAS \n 1. SUMA \n 2. RESTA \n 3. MULTIPLICACION \n 4. DIVISION");
+                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
+
+                    menu2 = sc.nextInt();
+                } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
+                    System.out.println("SU CARACTER FUE INCORRECTO");
+                    sc.nextLine();
+                    flag = true;                            //si es asi volver a el menu
+                }
+                }
+           
+            
+            if (menu == 2) {                          //bucle para que al escoger un no int volver al menu y no generar error
+
+                flag = false;            //flag
+
+                try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
+
+                    
+                    System.out.println("USTED ESCOGIO PRIMOS");
+                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE: \n 1.SECUENCIA DE NUMEROS PRIMOS ");
+
+                    menu3 = sc.nextInt();
+                } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
+                    System.out.println("SU CARACTER FUE INCORRECTO");
+                    sc.nextLine();
                     flag = true;                            //si es asi volver a el menu
                 }
 
-            } while (flag);
+            }
+            
+            if (menu == 3) {                          //bucle para que al escoger un no int volver al menu y no generar error
 
-            if (menu == 1) {
+                flag = false;            //flag
+
+                try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
+
+                    
+                    System.out.println("USTED ESCOGIO FIBONACCI");
+                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE \n 1. SECUENCIA FIBONACCI ");
+
+                    menu4 = sc.nextInt();
+                } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
+                    System.out.println("SU CARACTER FUE INCORRECTO");
+                    sc.nextLine();
+                    flag = true;                            //si es asi volver a el menu
+                }
+
+            } 
+
+            if (menu2== 1) {
                 System.out.println("Usted escogio SUMA");
                 int numero = 0;
                 int numero2 = 0;
@@ -59,7 +119,7 @@ public class Programa1 {
                 numero2 = sc.nextInt();
                 System.out.println("El resultado de la suma es:" + (numero + numero2));
             }
-            if (menu == 2) {
+            if (menu2 == 2) {
                 System.out.println("Usted escogio RESTA");
                 System.out.println("RESTA");
                 int resta = 0;
@@ -70,7 +130,7 @@ public class Programa1 {
                 resta2 = sc.nextInt();
                 System.out.println("El resultado de la resta es:" + (resta - resta2));
             }
-            if (menu == 3) {
+            if (menu2 == 3) {
                 System.out.println("Usted escogio MULTIPLICACION");
                 System.out.println("MULTIPLICACION");
                 int mul;
@@ -81,7 +141,7 @@ public class Programa1 {
                 mul2 = sc.nextInt();
                 System.out.println("El resultado de la multiplicacion es:" + (mul * mul2));
             }
-            if (menu == 4) {
+            if (menu2 == 4) {
                 System.out.println("Usted escogio DIVISION");
                 System.out.println("DIVISION");
                 float division;
@@ -95,7 +155,7 @@ public class Programa1 {
                 }
                 System.out.println("El resultado de la division es:" + (division / division2));
             }
-            if (menu == 5) {
+            if (menu3 == 1) {
 
                 System.out.println("Usted escogio SECUENCIA DE NUMEROS PRIMOS");
                 System.out.println("NUMEROS PRIMOS");
@@ -121,7 +181,7 @@ public class Programa1 {
                 }
             }
 
-            if (menu == 6) {
+            if (menu4 == 1) {
                 System.out.println("Usted escogio SECUENCIA FIBONACCI");
                 System.out.println("FIBONACCI");
                 Scanner scan = new Scanner(System.in);
@@ -147,7 +207,7 @@ public class Programa1 {
 
             again = true;                                        // cada vez que termine esta flag volvera a dar las opciones del menu
 
-            if (menu == 7) {                                       //si no escogio ninguna de las opciones que estaban dentro de la flag y escogio 6 va a cerrar
+            if (menu == 4) {                                       //si no escogio ninguna de las opciones que estaban dentro de la flag y escogio 6 va a cerrar
                 System.out.println(" ____________________________");
                 System.out.println("|                            |");
                 System.out.println("|USTED HA CERRADO EL PROGRAMA|");
