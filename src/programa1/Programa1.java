@@ -76,7 +76,7 @@ public class Programa1 {
                 try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
 
                     System.out.println("USTED ESCOGIO PRIMOS");
-                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE: \n 1.SECUENCIA DE NUMEROS PRIMOS ");
+                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE: \n 1. SECUENCIA DE NUMEROS PRIMOS \n 2. SABER SI UN NUMERO ES PRIMO \n 3. NUMERO DE PRIMOS QUE DESEA VER");
 
                     menu3 = sc.nextInt();
                 } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
@@ -94,7 +94,7 @@ public class Programa1 {
                 try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
 
                     System.out.println("USTED ESCOGIO FIBONACCI");
-                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE \n 1. SECUENCIA FIBONACCI ");
+                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE \n 1. SECUENCIA FIBONACCI \n 2. X NUMEROS PEDIDOS FIBONACCI");
 
                     menu4 = sc.nextInt();
                 } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
@@ -106,109 +106,34 @@ public class Programa1 {
             }
 
             if (menu2 == 1) {
-                System.out.println("Usted escogio SUMA");
-                int numero = 0;
-                int numero2 = 0;
-                System.out.println("Introduce el primer numero:");
-                numero = sc.nextInt();
-                System.out.println("Introduce el segundo numero:");
-                numero2 = sc.nextInt();
-                System.out.println("El resultado de la suma es:" + (numero + numero2));
+                suma();
             }
             if (menu2 == 2) {
-                System.out.println("Usted escogio RESTA");
-                System.out.println("RESTA");
-                int resta = 0;
-                int resta2 = 0;
-                System.out.println("Introduce el primer numero:");
-                resta = sc.nextInt();
-                System.out.println("Introduce el segundo numero:");
-                resta2 = sc.nextInt();
-                System.out.println("El resultado de la resta es:" + (resta - resta2));
+                resta();
             }
             if (menu2 == 3) {
-                System.out.println("Usted escogio MULTIPLICACION");
-                System.out.println("MULTIPLICACION");
-                int mul;
-                int mul2;
-                System.out.println("Introduce el primer numero:");
-                mul = sc.nextInt();
-                System.out.println("Introduce el segundo numero:");
-                mul2 = sc.nextInt();
-                System.out.println("El resultado de la multiplicacion es:" + (mul * mul2));
+                mul();
             }
             if (menu2 == 4) {
-                System.out.println("Usted escogio DIVISION");
-                System.out.println("DIVISION");
-                float division;
-                float division2;
-                System.out.println("Introduce el primero numero:");
-                division = sc.nextInt();
-                System.out.println("Introduce el segundo numero:");
-                division2 = sc.nextInt();
-                if (division2 == 0) {
-                    System.out.println("no se puede dividir por 0");
-                }
-                System.out.println("El resultado de la division es:" + (division / division2));
+                division();
             }
-            if (menu3 == 1) {
-
-                System.out.println("Usted escogio SECUENCIA DE NUMEROS PRIMOS");
-                System.out.println("NUMEROS PRIMOS");
-                int num;
-                int cont = 0;
-                int i = 2;
-                int j = 1;
-                System.out.println("Escribe el numero");
-                num = sc.nextInt();
-                while (num >= i) {
-                    while (i >= j) {
-                        if (i % j == 0) {
-                            cont++;
-                        }
-                        j++;
-                    }
-                    if (cont == 2) {
-                        System.out.println(i);
-                    }
-                    i++;
-                    cont = 0;
-                    j = 1;
-                }
+            if (menu3 ==1){
+                primos1();                
             }
-
-            if (menu4 == 1) {
-                System.out.println("Usted escogio SECUENCIA FIBONACCI");
-                System.out.println("FIBONACCI");
-                Scanner scan = new Scanner(System.in);
-
-                int a = 0;
-                int b = 1;
-                int c;
-                int n;
-
-                System.out.println("Escribe un numero");
-                n = scan.nextInt();
-                System.out.println(a);
-                System.out.println(b);
-                while (true) {
-                    c = a + b;
-                    if (c < n) {
-                        System.out.println(c);
-                        a = b;
-                        b = c;
-                    }
-                }
+            if (menu3 ==2){
+                primos2();
+            }
+            if (menu3 ==3){
+                primos3();
+            }
+            if (menu4 ==1){
+                fibo1();
             }
 
             again = true;                                        // cada vez que termine esta flag volvera a dar las opciones del menu
 
             if (menu == 4) {                                       //si no escogio ninguna de las opciones que estaban dentro de la flag y escogio 6 va a cerrar
-                System.out.println(" ____________________________");
-                System.out.println("|                            |");
-                System.out.println("|USTED HA CERRADO EL PROGRAMA|");
-                System.out.println("|____________________________|");
-                System.exit(0);
+                exit();
             }
 
         } while (again);
@@ -269,54 +194,116 @@ public class Programa1 {
         System.out.println("El resultado de la division es:" + (division / division2));
 
     }
-    static void primos1(){
+
+    static void primos1() {
         Scanner sc = new Scanner(System.in);
-    System.out.println("Usted escogio SECUENCIA DE NUMEROS PRIMOS");
-                System.out.println("NUMEROS PRIMOS");
-                int num;
-                int cont = 0;
-                int i = 2;
-                int j = 1;
-                System.out.println("Escribe el numero");
-                num = sc.nextInt();
-                while (num >= i) {
-                    while (i >= j) {
-                        if (i % j == 0) {
-                            cont++;
-                        }
-                        j++;
-                    }
-                    if (cont == 2) {
-                        System.out.println(i);
-                    }
-                    i++;
-                    cont = 0;
-                    j = 1;
+        System.out.println("Usted escogio SECUENCIA DE NUMEROS PRIMOS");
+        System.out.println("NUMEROS PRIMOS");
+        int num;
+        int cont = 0;
+        int i = 2;
+        int j = 1;
+        System.out.println("Escribe el numero");
+        num = sc.nextInt();
+        while (num >= i) {
+            while (i >= j) {
+                if (i % j == 0) {
+                    cont++;
                 }
+                j++;
+            }
+            if (cont == 2) {
+                System.out.println(i);
+            }
+            i++;
+            cont = 0;
+            j = 1;
+        }
     }
-    static void fibo1(){
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Usted escogio SECUENCIA FIBONACCI");
-                System.out.println("FIBONACCI");
-                Scanner scan = new Scanner(System.in);
 
-                int a = 0;
-                int b = 1;
-                int c;
-                int n;
+    static void fibo1() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Usted escogio SECUENCIA FIBONACCI");
+        System.out.println("FIBONACCI");
+        Scanner scan = new Scanner(System.in);
 
-                System.out.println("Escribe un numero");
-                n = scan.nextInt();
-                System.out.println(a);
-                System.out.println(b);
-                while (true) {
-                    c = a + b;
-                    if (c < n) {
-                        System.out.println(c);
-                        a = b;
-                        b = c;
-                    }
-                }
+        int a = 0;
+        int b = 1;
+        int c;
+        int n;
+
+        System.out.println("Escribe un numero");
+        n = scan.nextInt();
+        System.out.println(a);
+        System.out.println(b);
+        while (true) {
+            c = a + b;
+            if (c < n) {
+                System.out.println(c);
+                a = b;
+                b = c;
+            }
+        }
     }
     
+    static void primos2(){
+        Scanner sc = new Scanner(System.in);
+        int num;
+        int y = 1;
+        int cont = 0;
+
+        System.out.println("Escriba el numero que desea: ");
+        num = sc.nextInt();
+        while (y <= num) {
+            if (num % y == 0) {
+                cont++;
+                y++;
+            } else {
+                y++;
+            }
+            if (cont == 2) {
+                System.out.println("su numero es primo");
+
+            } else {
+                System.out.println("su numero no es primo");
+            }
+        }
+    }
+    
+    static void primos3(){
+        Scanner sc = new Scanner(System.in);
+        int n;
+        int i = 2;
+        int j = 1;
+        int cont = 0;
+        System.out.println("Escriba el numero de primos que desea ver: ");
+        n = sc.nextInt();
+        while (n > 0) {
+            n--;
+            while (n >= i) {
+                while (i >= j) {
+                    if (i % j == 0) {
+                        cont++;
+                    }
+                    j++;
+                }
+                if (cont == 2) {
+                    System.out.println(i);
+                }
+                i++;
+                cont = 0;
+                j = 1;
+            }
+        }
+        
+    }
+    
+    static void exit(){
+        System.out.println(" ____________________________");
+                System.out.println("|                            |");
+                System.out.println("|USTED HA CERRADO EL PROGRAMA|");
+                System.out.println("|____________________________|");
+                System.exit(0);
+    }
+
 }
