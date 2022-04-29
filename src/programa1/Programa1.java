@@ -117,17 +117,20 @@ public class Programa1 {
             if (menu2 == 4) {
                 division();
             }
-            if (menu3 ==1){
-                primos1();                
+            if (menu3 == 1) {
+                primos1();
             }
-            if (menu3 ==2){
+            if (menu3 == 2) {
                 primos2();
             }
-            if (menu3 ==3){
+            if (menu3 == 3) {
                 primos3();
             }
-            if (menu4 ==1){
+            if (menu4 == 1) {
                 fibo1();
+            }
+            if (menu4 == 2){
+                fibo2();
             }
 
             again = true;                                        // cada vez que termine esta flag volvera a dar las opciones del menu
@@ -245,8 +248,8 @@ public class Programa1 {
             }
         }
     }
-    
-    static void primos2(){
+
+    static void primos2() {
         Scanner sc = new Scanner(System.in);
         int num;
         int y = 1;
@@ -269,8 +272,8 @@ public class Programa1 {
             }
         }
     }
-    
-    static void primos3(){
+
+    static void primos3() {
         Scanner sc = new Scanner(System.in);
         int n;
         int i = 2;
@@ -295,15 +298,40 @@ public class Programa1 {
                 j = 1;
             }
         }
-        
+
     }
-    
-    static void exit(){
+
+    static void fibo2() {
+        Scanner sc = new Scanner(System.in);
+
+        int a = 0;
+        int b = 1;
+        int c;
+        int n;
+        System.out.println("Escriba el numero de FIBONACCI que desea ver: ");
+        n = sc.nextInt();
+
+        System.out.println(a);
+        System.out.println(b);
+        while (true) {
+            c = a + b;
+            if (n > 0) {
+                System.out.println(c);
+                a = b;
+                b = c;
+                n--;
+            } else {
+                break;
+            }
+        }
+    }
+
+    static void exit() {
         System.out.println(" ____________________________");
-                System.out.println("|                            |");
-                System.out.println("|USTED HA CERRADO EL PROGRAMA|");
-                System.out.println("|____________________________|");
-                System.exit(0);
+        System.out.println("|                            |");
+        System.out.println("|USTED HA CERRADO EL PROGRAMA|");
+        System.out.println("|____________________________|");
+        System.exit(0);
     }
 
 }
