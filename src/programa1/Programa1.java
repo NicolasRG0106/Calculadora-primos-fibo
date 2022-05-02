@@ -21,124 +21,48 @@ public class Programa1 {
      */
     public static void main(String[] args) {
 
-        int menu = 0;
-        boolean flag;
-        boolean again;
-        boolean first;
-        int menu2 = 0;
-        int menu3 = 0;
-        int menu4 = 0;
+        Scanner sc = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in); //ingreso de texto por usuario
+        int opciones = 0;
+        boolean again = false;
 
-        do {                         //bucle para escoger la opcion y cuando termine volver al menu
-            again = false;           //flag 
-
-            do {                          //bucle para que al escoger un no int volver al menu y no generar error
-
-                first = false;            //flag
-
-                try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
-
-                    System.out.println("MENU");
-                    System.out.println(" 1. OPERACIONES BASICAS \n 2. PRIMOS \n 3. FIBONACCI \n 4. SALIR");
-                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
-
-                    menu = sc.nextInt();
-                } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
-                    System.out.println("SU CARACTER FUE INCORRECTO");
-                    sc.nextLine();
-                    first = true;                            //si es asi volver a el menu
-                }
-
-            } while (first);
-            //bucle para que al escoger un no int volver al menu y no generar error
-            if (menu == 1) {
-                flag = false;            //flag
-
-                try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
-
-                    System.out.println("USTED ESCOGIO OPERACIONES BASICAS \n 1. SUMA \n 2. RESTA \n 3. MULTIPLICACION \n 4. DIVISION");
-                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
-
-                    menu2 = sc.nextInt();
-                } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
-                    System.out.println("SU CARACTER FUE INCORRECTO");
-                    sc.nextLine();
-                    flag = true;                            //si es asi volver a el menu
-                }
+        do {
+            try {
+                again = false;
+                System.out.println("MENU");
+                System.out.println(" 1. OPERACIONES BASICAS \n 2. PRIMOS \n 3. FIBONACCI \n 4. SALIR");
+                System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
+                opciones = sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.nextLine();
             }
+            switch (opciones) {
+                case 1: {
+                    menu1();
+                    again = true;
+                    break;
+                }
+                case 2: {
+                    menu2();
+                    again = true;
+                    break;
 
-            if (menu == 2) {                          //bucle para que al escoger un no int volver al menu y no generar error
+                }
+                case 3: {
+                    menu3();
+                    again = true;
+                    break;
 
-                flag = false;            //flag
-
-                try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
-
-                    System.out.println("USTED ESCOGIO PRIMOS");
-                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE: \n 1. SECUENCIA DE NUMEROS PRIMOS \n 2. SABER SI UN NUMERO ES PRIMO \n 3. NUMERO DE PRIMOS QUE DESEA VER");
-
-                    menu3 = sc.nextInt();
-                } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
-                    System.out.println("SU CARACTER FUE INCORRECTO");
-                    sc.nextLine();
-                    flag = true;                            //si es asi volver a el menu
+                }
+                case 4: {
+                    exit();
+                }
+                default: {
+                    System.out.println("Error capa 8");
+                    again = true;
                 }
 
             }
-
-            if (menu == 3) {                          //bucle para que al escoger un no int volver al menu y no generar error
-
-                flag = false;            //flag
-
-                try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
-
-                    System.out.println("USTED ESCOGIO FIBONACCI");
-                    System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE \n 1. SECUENCIA FIBONACCI \n 2. X NUMEROS PEDIDOS FIBONACCI");
-
-                    menu4 = sc.nextInt();
-                } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
-                    System.out.println("SU CARACTER FUE INCORRECTO");
-                    sc.nextLine();
-                    flag = true;                            //si es asi volver a el menu
-                }
-
-            }
-
-            if (menu2 == 1) {
-                suma();
-            }
-            if (menu2 == 2) {
-                resta();
-            }
-            if (menu2 == 3) {
-                mul();
-            }
-            if (menu2 == 4) {
-                division();
-            }
-            if (menu3 == 1) {
-                primos1();
-            }
-            if (menu3 == 2) {
-                primos2();
-            }
-            if (menu3 == 3) {
-                primos3();
-            }
-            if (menu4 == 1) {
-                fibo1();
-            }
-            if (menu4 == 2){
-                fibo2();
-            }
-
-            again = true;                                        // cada vez que termine esta flag volvera a dar las opciones del menu
-
-            if (menu == 4) {                                       //si no escogio ninguna de las opciones que estaban dentro de la flag y escogio 6 va a cerrar
-                exit();
-            }
-
         } while (again);
 
     }
@@ -225,7 +149,6 @@ public class Programa1 {
     }
 
     static void fibo1() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Usted escogio SECUENCIA FIBONACCI");
         System.out.println("FIBONACCI");
         Scanner scan = new Scanner(System.in);
@@ -245,6 +168,8 @@ public class Programa1 {
                 System.out.println(c);
                 a = b;
                 b = c;
+            } else {
+                break;
             }
         }
     }
@@ -264,12 +189,12 @@ public class Programa1 {
             } else {
                 y++;
             }
-            if (cont == 2) {
-                System.out.println("su numero es primo");
+        }
+        if (cont == 2) {
+            System.out.println("su numero es primo");
 
-            } else {
-                System.out.println("su numero no es primo");
-            }
+        } else {
+            System.out.println("su numero no es primo");
         }
     }
 
@@ -310,7 +235,6 @@ public class Programa1 {
         int n;
         System.out.println("Escriba el numero de FIBONACCI que desea ver: ");
         n = sc.nextInt();
-
         System.out.println(a);
         System.out.println(b);
         while (true) {
@@ -324,6 +248,93 @@ public class Programa1 {
                 break;
             }
         }
+
+    }
+
+    static void menu2() {
+        boolean flag;
+        int menu3 = 0;
+        Scanner sc = new Scanner(System.in);
+
+        try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
+            flag = false;
+            System.out.println("USTED ESCOGIO PRIMOS");
+            System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE: \n 1. SECUENCIA DE NUMEROS PRIMOS \n 2. SABER SI UN NUMERO ES PRIMO \n 3. NUMERO DE PRIMOS QUE DESEA VER");
+
+            menu3 = sc.nextInt();
+        } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
+            System.out.println("SU CARACTER FUE INCORRECTO");
+            sc.nextLine();
+            flag = true;                            //si es asi volver a el menu
+        }
+
+        if (menu3 == 1) {
+            primos1();
+        }
+        if (menu3 == 2) {
+            primos2();
+        }
+        if (menu3 == 3) {
+            primos3();
+        }
+
+    }
+
+    static void menu1() {
+        int menu2 = 0;
+        Scanner sc = new Scanner(System.in);
+        //flag
+
+        try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
+
+            System.out.println("USTED ESCOGIO OPERACIONES BASICAS \n 1. SUMA \n 2. RESTA \n 3. MULTIPLICACION \n 4. DIVISION");
+            System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
+
+            menu2 = sc.nextInt();
+        } catch (InputMismatchException e) {            //funcion que genera la excepcion para que imprima una frase   
+            System.out.println("SU CARACTER FUE INCORRECTO");
+            sc.nextLine();                       //si es asi volver a el menu
+        }
+        if (menu2 == 1) {
+            suma();
+        }
+        if (menu2 == 2) {
+            resta();
+        }
+        if (menu2 == 3) {
+            mul();
+        }
+        if (menu2 == 4) {
+            division();
+        }
+
+    }
+    
+    static void menu3() {
+        boolean flag;
+        int menu4 = 0;
+        Scanner sc = new Scanner(System.in);
+
+        flag = false;            //flag
+
+        try {                        //funcion try catch para generar una excepcion al ecribir una variable no int
+
+            System.out.println("USTED ESCOGIO FIBONACCI");
+            System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPCION QUE DESEE \n 1. SECUENCIA FIBONACCI \n 2. X NUMEROS PEDIDOS FIBONACCI");
+
+            menu4 = sc.nextInt();
+        } catch (InputMismatchException e) {                //funcion que genera la excepcion para que imprima una frase   
+            System.out.println("SU CARACTER FUE INCORRECTO");
+            sc.nextLine();
+            flag = true;                            //si es asi volver a el menu
+        }
+        if (menu4 == 1) {
+            fibo1();
+        }
+        if (menu4 == 2) {
+            fibo2();
+        }
+
     }
 
     static void exit() {
