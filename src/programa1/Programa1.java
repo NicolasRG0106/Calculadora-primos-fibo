@@ -63,8 +63,8 @@ public class Programa1 {
 
     static void suma() {
         Scanner scan = new Scanner(System.in);
-        int suma1 = 0;
-        int suma2 = 0;
+        int suma1;
+        int suma2;
         System.out.println("Usted escogio suma");
         try {
             System.out.println("Escriba el primer numero: ");
@@ -73,7 +73,9 @@ public class Programa1 {
             System.out.println("INGRESE UN NUMERO ENTERO");
             scan.nextLine();
             return;
+
         }
+
         try {
             System.out.println("Escriba el segundo numero");
             suma2 = scan.nextInt();
@@ -113,8 +115,8 @@ public class Programa1 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Usted escogio RESTA");
         System.out.println("RESTA");
-        int resta = 0;
-        int resta2 = 0;
+        int resta;
+        int resta2;
         try {
             System.out.println("Introduce el primer numero:");
             resta = sc.nextInt();
@@ -264,6 +266,7 @@ public class Programa1 {
         int i = 2;
         int j = 1;
         int cont = 0;
+        int n2 = 2;
         try {
             System.out.println("Escriba el numero de primos que desea ver: ");
             n = sc.nextInt();
@@ -272,24 +275,28 @@ public class Programa1 {
             sc.nextLine();
             return;
         }
-        while (n > 0) {
-            n--;
-            while (n >= i) {
-                while (i >= j) {
-                    if (i % j == 0) {
-                        cont++;
+        while (true) {
+            if (n > 2) {
+                n--;
+                while (n2 >= i) {
+                    while (i >= j) {
+                        if (i % j == 0) {
+                            cont++;
+                        }
+                        j++;
                     }
-                    j++;
+                    if (cont == 2) {
+                        System.out.println(i);
+                    }
+                    n2++;
+                    i++;
+                    cont = 0;
+                    j = 1;
                 }
-                if (cont == 2) {
-                    System.out.println(i);
-                }
-                i++;
-                cont = 0;
-                j = 1;
+            }else{
+                break;
             }
         }
-
     }
 
     static void fibo2() {
