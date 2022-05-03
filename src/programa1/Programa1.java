@@ -5,9 +5,13 @@
  */
 package programa1;
 
+import java.awt.Button;
+import java.awt.Component;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import sun.text.normalizer.UTF16;
 
 /**
@@ -29,7 +33,7 @@ public class Programa1 {
         do {
             try {
                 again = false;
-                System.out.println("MENU");
+                JOptionPane.showMessageDialog(null, "MENU", "Created by Nicolas", JOptionPane.WARNING_MESSAGE);
                 System.out.println(" 1. OPERACIONES BASICAS \n 2. PRIMOS \n 3. FIBONACCI \n 4. SALIR");
                 System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
                 opciones = sc.nextInt();
@@ -76,7 +80,7 @@ public class Programa1 {
         suma1 = scan.nextInt();
         System.out.println("Escriba el segundo numero");
         suma2 = scan.nextInt();
-        System.out.println("su resultado es: " + (suma1 + suma2));
+        JOptionPane.showMessageDialog(null, "su resultado es: " + (suma1 + suma2));
     }
 
     static void mul() {
@@ -88,7 +92,7 @@ public class Programa1 {
         mul1 = scan.nextInt();
         System.out.println("Escribe el segundo numero");
         mul2 = scan.nextInt();
-        System.out.println("El resultado es; " + (mul1 * mul2));
+        JOptionPane.showMessageDialog(null, "El resultado es: " + (mul1 * mul2));
     }
 
     static void resta() {
@@ -101,7 +105,7 @@ public class Programa1 {
         resta = sc.nextInt();
         System.out.println("Introduce el segundo numero:");
         resta2 = sc.nextInt();
-        System.out.println("El resultado de la resta es:" + (resta - resta2));
+        JOptionPane.showMessageDialog(null, "El resultado de la resta es: " + (resta - resta2));
 
     }
 
@@ -116,10 +120,10 @@ public class Programa1 {
         System.out.println("Introduce el segundo numero:");
         division2 = sc.nextInt();
         if (division2 == 0) {
-            System.out.println("no se puede dividir por 0");
+            JOptionPane.showMessageDialog(null, "no se puede dividir por 0");
+        } else {
+            JOptionPane.showMessageDialog(null, "El resultado de la division es: " + (division / division2));
         }
-        System.out.println("El resultado de la division es:" + (division / division2));
-
     }
 
     static void primos1() {
@@ -191,10 +195,10 @@ public class Programa1 {
             }
         }
         if (cont == 2) {
-            System.out.println("su numero es primo");
+            JOptionPane.showMessageDialog(null,"su numero es primo");
 
         } else {
-            System.out.println("su numero no es primo");
+            JOptionPane.showMessageDialog(null,"su numero no es primo");
         }
     }
 
@@ -309,7 +313,7 @@ public class Programa1 {
         }
 
     }
-    
+
     static void menu3() {
         boolean flag;
         int menu4 = 0;
@@ -338,10 +342,7 @@ public class Programa1 {
     }
 
     static void exit() {
-        System.out.println(" ____________________________");
-        System.out.println("|                            |");
-        System.out.println("|USTED HA CERRADO EL PROGRAMA|");
-        System.out.println("|____________________________|");
+        JOptionPane.showMessageDialog(null,"USTED SE HA SALIDO","Created by Nicolas",JOptionPane.ERROR_MESSAGE);
         System.exit(0);
     }
 
