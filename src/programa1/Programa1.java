@@ -33,7 +33,7 @@ public class Programa1 {
         do {
             try {
                 again = false;
-                JOptionPane.showMessageDialog(null, "MENU", "Created by Nicolas", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "MENU", "Created by Nicolas", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println(" 1. OPERACIONES BASICAS \n 2. PRIMOS \n 3. FIBONACCI \n 4. SALIR");
                 System.out.println("ESCRIBA EL NUMERO DEPENDIENDO LA OPERACION QUE DESEE: ");
                 opciones = sc.nextInt();
@@ -62,7 +62,7 @@ public class Programa1 {
                     exit();
                 }
                 default: {
-                    System.out.println("Error capa 8");
+                    JOptionPane.showMessageDialog(null,"Error","",JOptionPane.WARNING_MESSAGE);
                     again = true;
                 }
 
